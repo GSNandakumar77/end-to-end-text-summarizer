@@ -2,13 +2,12 @@ import os
 from box.exceptions import BoxValueError
 import yaml
 from src.end_to_end_textSummarizer.logging import logger
-from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
+from beartype import beartype
 
-
-@ensure_annotations
+@beartype
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
     """reads yaml file and returns
 
@@ -31,8 +30,8 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
         raise ValueError("yaml file is empty")
     except Exception as e:
         raise e
-    
-@ensure_annotations
+
+@beartype    
 def create_directories(path_to_directories: list, verbose=True):
     """create list of directories
 
