@@ -86,3 +86,471 @@
 [2025-09-22 01:09:07,377: INFO: on: Waiting for application shutdown.]
 [2025-09-22 01:09:07,379: INFO: on: Application shutdown complete.]
 [2025-09-22 01:09:07,381: INFO: server: Finished server process [20096]]
+[2025-09-22 01:10:48,893: INFO: server: Started server process [14436]]
+[2025-09-22 01:10:48,895: INFO: on: Waiting for application startup.]
+[2025-09-22 01:10:48,896: INFO: on: Application startup complete.]
+[2025-09-22 01:10:48,898: INFO: server: Uvicorn running on http://0.0.0.0:8081 (Press CTRL+C to quit)]
+[2025-09-22 01:23:30,300: INFO: server: Shutting down]
+[2025-09-22 01:23:30,441: INFO: on: Waiting for application shutdown.]
+[2025-09-22 01:23:30,446: INFO: on: Application shutdown complete.]
+[2025-09-22 01:23:30,448: INFO: server: Finished server process [14436]]
+[2025-09-22 01:23:54,034: INFO: server: Started server process [11480]]
+[2025-09-22 01:23:54,036: INFO: on: Waiting for application startup.]
+[2025-09-22 01:23:54,037: INFO: on: Application startup complete.]
+[2025-09-22 01:23:54,039: INFO: server: Uvicorn running on http://0.0.0.0:8081 (Press CTRL+C to quit)]
+[2025-09-22 01:25:19,861: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 01:25:19,872: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 01:25:19,876: INFO: common: created directory at: artifacts]
+[2025-09-22 01:25:19,878: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 01:25:19,994: ERROR: h11_impl: Exception in ASGI application
+]
+Traceback (most recent call last):
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 404, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\applications.py", line 269, in __call__
+    await super().__call__(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\exceptions.py", line 93, in __call__
+    raise exc
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    await self.app(scope, receive, sender)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 21, in __call__
+    raise e
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\routing.py", line 670, in __call__
+    await route.handle(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\routing.py", line 266, in handle
+    await self.app(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\routing.py", line 65, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\routing.py", line 227, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        dependant=dependant, values=values, is_coroutine=is_coroutine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\routing.py", line 160, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\app.py", line 43, in predict_route
+    raise e
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\app.py", line 40, in predict_route
+    result = obj.predict(request.text)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\src\end_to_end_textSummarizer\pipeline\prediction_pipeline.py", line 14, in predict
+    tokenizer = AutoTokenizer.from_pretrained(self.config.model_path)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\models\auto\tokenization_auto.py", line 1144, in from_pretrained
+    return tokenizer_class_fast.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\tokenization_utils_base.py", line 2070, in from_pretrained
+    return cls._from_pretrained(
+           ~~~~~~~~~~~~~~~~~~~~^
+        resolved_vocab_files,
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\tokenization_utils_base.py", line 2108, in _from_pretrained
+    slow_tokenizer = (cls.slow_tokenizer_class)._from_pretrained(
+        copy.deepcopy(resolved_vocab_files),
+    ...<7 lines>...
+        **(copy.deepcopy(kwargs)),
+    )
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\tokenization_utils_base.py", line 2316, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\models\pegasus\tokenization_pegasus.py", line 144, in __init__
+    self.sp_model.Load(vocab_file)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\sentencepiece\__init__.py", line 961, in Load
+    return self.LoadFromFile(model_file)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\sentencepiece\__init__.py", line 316, in LoadFromFile
+    return _sentencepiece.SentencePieceProcessor_LoadFromFile(self, arg)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: not a string
+[2025-09-22 01:26:00,322: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 01:26:00,326: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 01:26:00,327: INFO: common: created directory at: artifacts]
+[2025-09-22 01:26:00,328: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 01:26:00,339: ERROR: h11_impl: Exception in ASGI application
+]
+Traceback (most recent call last):
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 404, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\applications.py", line 269, in __call__
+    await super().__call__(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\exceptions.py", line 93, in __call__
+    raise exc
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    await self.app(scope, receive, sender)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 21, in __call__
+    raise e
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\routing.py", line 670, in __call__
+    await route.handle(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\routing.py", line 266, in handle
+    await self.app(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\routing.py", line 65, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\routing.py", line 227, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        dependant=dependant, values=values, is_coroutine=is_coroutine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\routing.py", line 160, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\app.py", line 43, in predict_route
+    raise e
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\app.py", line 40, in predict_route
+    result = obj.predict(request.text)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\src\end_to_end_textSummarizer\pipeline\prediction_pipeline.py", line 14, in predict
+    tokenizer = AutoTokenizer.from_pretrained(self.config.model_path)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\models\auto\tokenization_auto.py", line 1144, in from_pretrained
+    return tokenizer_class_fast.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\tokenization_utils_base.py", line 2070, in from_pretrained
+    return cls._from_pretrained(
+           ~~~~~~~~~~~~~~~~~~~~^
+        resolved_vocab_files,
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\tokenization_utils_base.py", line 2108, in _from_pretrained
+    slow_tokenizer = (cls.slow_tokenizer_class)._from_pretrained(
+        copy.deepcopy(resolved_vocab_files),
+    ...<7 lines>...
+        **(copy.deepcopy(kwargs)),
+    )
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\tokenization_utils_base.py", line 2316, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\models\pegasus\tokenization_pegasus.py", line 144, in __init__
+    self.sp_model.Load(vocab_file)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\sentencepiece\__init__.py", line 961, in Load
+    return self.LoadFromFile(model_file)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\sentencepiece\__init__.py", line 316, in LoadFromFile
+    return _sentencepiece.SentencePieceProcessor_LoadFromFile(self, arg)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: not a string
+[2025-09-22 01:26:02,483: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 01:26:02,490: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 01:26:02,493: INFO: common: created directory at: artifacts]
+[2025-09-22 01:26:02,495: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 01:26:02,520: ERROR: h11_impl: Exception in ASGI application
+]
+Traceback (most recent call last):
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 404, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\applications.py", line 269, in __call__
+    await super().__call__(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\exceptions.py", line 93, in __call__
+    raise exc
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    await self.app(scope, receive, sender)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 21, in __call__
+    raise e
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\routing.py", line 670, in __call__
+    await route.handle(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\routing.py", line 266, in handle
+    await self.app(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\routing.py", line 65, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\routing.py", line 227, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        dependant=dependant, values=values, is_coroutine=is_coroutine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\routing.py", line 160, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\app.py", line 43, in predict_route
+    raise e
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\app.py", line 40, in predict_route
+    result = obj.predict(request.text)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\src\end_to_end_textSummarizer\pipeline\prediction_pipeline.py", line 14, in predict
+    tokenizer = AutoTokenizer.from_pretrained(self.config.model_path)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\models\auto\tokenization_auto.py", line 1144, in from_pretrained
+    return tokenizer_class_fast.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\tokenization_utils_base.py", line 2070, in from_pretrained
+    return cls._from_pretrained(
+           ~~~~~~~~~~~~~~~~~~~~^
+        resolved_vocab_files,
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\tokenization_utils_base.py", line 2108, in _from_pretrained
+    slow_tokenizer = (cls.slow_tokenizer_class)._from_pretrained(
+        copy.deepcopy(resolved_vocab_files),
+    ...<7 lines>...
+        **(copy.deepcopy(kwargs)),
+    )
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\tokenization_utils_base.py", line 2316, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\models\pegasus\tokenization_pegasus.py", line 144, in __init__
+    self.sp_model.Load(vocab_file)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\sentencepiece\__init__.py", line 961, in Load
+    return self.LoadFromFile(model_file)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\sentencepiece\__init__.py", line 316, in LoadFromFile
+    return _sentencepiece.SentencePieceProcessor_LoadFromFile(self, arg)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: not a string
+[2025-09-22 01:29:28,782: INFO: server: Shutting down]
+[2025-09-22 01:29:28,887: INFO: on: Waiting for application shutdown.]
+[2025-09-22 01:29:28,889: INFO: on: Application shutdown complete.]
+[2025-09-22 01:29:28,891: INFO: server: Finished server process [11480]]
+[2025-09-22 01:30:09,801: INFO: server: Started server process [13104]]
+[2025-09-22 01:30:09,803: INFO: on: Waiting for application startup.]
+[2025-09-22 01:30:09,804: INFO: on: Application startup complete.]
+[2025-09-22 01:30:09,806: INFO: server: Uvicorn running on http://0.0.0.0:8081 (Press CTRL+C to quit)]
+[2025-09-22 01:30:48,911: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 01:30:48,915: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 01:30:48,916: INFO: common: created directory at: artifacts]
+[2025-09-22 01:30:48,917: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 01:30:48,967: ERROR: h11_impl: Exception in ASGI application
+]
+Traceback (most recent call last):
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 404, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\uvicorn\middleware\proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\applications.py", line 269, in __call__
+    await super().__call__(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\middleware\errors.py", line 184, in __call__
+    raise exc
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\middleware\errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\exceptions.py", line 93, in __call__
+    raise exc
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\exceptions.py", line 82, in __call__
+    await self.app(scope, receive, sender)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 21, in __call__
+    raise e
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\routing.py", line 670, in __call__
+    await route.handle(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\routing.py", line 266, in handle
+    await self.app(scope, receive, send)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\starlette\routing.py", line 65, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\routing.py", line 227, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        dependant=dependant, values=values, is_coroutine=is_coroutine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\fastapi\routing.py", line 160, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\app.py", line 43, in predict_route
+    raise e
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\app.py", line 40, in predict_route
+    result = obj.predict(request.text)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\src\end_to_end_textSummarizer\pipeline\prediction_pipeline.py", line 20, in predict
+    tokenizer = AutoTokenizer.from_pretrained(model_path)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\models\auto\tokenization_auto.py", line 1144, in from_pretrained
+    return tokenizer_class_fast.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\tokenization_utils_base.py", line 2070, in from_pretrained
+    return cls._from_pretrained(
+           ~~~~~~~~~~~~~~~~~~~~^
+        resolved_vocab_files,
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\tokenization_utils_base.py", line 2108, in _from_pretrained
+    slow_tokenizer = (cls.slow_tokenizer_class)._from_pretrained(
+        copy.deepcopy(resolved_vocab_files),
+    ...<7 lines>...
+        **(copy.deepcopy(kwargs)),
+    )
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\tokenization_utils_base.py", line 2316, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\transformers\models\pegasus\tokenization_pegasus.py", line 144, in __init__
+    self.sp_model.Load(vocab_file)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\sentencepiece\__init__.py", line 961, in Load
+    return self.LoadFromFile(model_file)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "E:\Projects\MLOPS\end-to-end-text-summarizer\summarizer\Lib\site-packages\sentencepiece\__init__.py", line 316, in LoadFromFile
+    return _sentencepiece.SentencePieceProcessor_LoadFromFile(self, arg)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: not a string
+[2025-09-22 01:31:02,530: INFO: server: Shutting down]
+[2025-09-22 01:31:02,632: INFO: on: Waiting for application shutdown.]
+[2025-09-22 01:31:02,634: INFO: on: Application shutdown complete.]
+[2025-09-22 01:31:02,635: INFO: server: Finished server process [13104]]
+[2025-09-22 01:40:29,596: INFO: server: Started server process [11320]]
+[2025-09-22 01:40:29,598: INFO: on: Waiting for application startup.]
+[2025-09-22 01:40:29,599: INFO: on: Application startup complete.]
+[2025-09-22 01:40:29,602: INFO: server: Uvicorn running on http://0.0.0.0:8081 (Press CTRL+C to quit)]
+[2025-09-22 01:41:06,650: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 01:41:06,654: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 01:41:06,655: INFO: common: created directory at: artifacts]
+[2025-09-22 01:41:06,656: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 01:41:15,897: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 01:41:15,901: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 01:41:15,902: INFO: common: created directory at: artifacts]
+[2025-09-22 01:41:15,903: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 01:42:19,498: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 01:42:19,506: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 01:42:19,508: INFO: common: created directory at: artifacts]
+[2025-09-22 01:42:19,510: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 01:42:35,145: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 01:42:35,150: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 01:42:35,151: INFO: common: created directory at: artifacts]
+[2025-09-22 01:42:35,153: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 01:46:13,019: INFO: server: Shutting down]
+[2025-09-22 01:46:43,221: INFO: on: Waiting for application shutdown.]
+[2025-09-22 01:46:43,222: INFO: on: Application shutdown complete.]
+[2025-09-22 01:46:43,223: INFO: server: Finished server process [11320]]
+[2025-09-22 01:47:02,285: INFO: server: Started server process [13124]]
+[2025-09-22 01:47:02,286: INFO: on: Waiting for application startup.]
+[2025-09-22 01:47:02,288: INFO: on: Application startup complete.]
+[2025-09-22 01:47:02,289: INFO: server: Uvicorn running on http://0.0.0.0:8081 (Press CTRL+C to quit)]
+[2025-09-22 14:28:33,432: INFO: server: Started server process [20596]]
+[2025-09-22 14:28:33,434: INFO: on: Waiting for application startup.]
+[2025-09-22 14:28:33,436: INFO: on: Application startup complete.]
+[2025-09-22 14:28:33,438: INFO: server: Uvicorn running on http://0.0.0.0:8081 (Press CTRL+C to quit)]
+[2025-09-22 14:31:36,246: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 14:31:36,274: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 14:31:36,276: INFO: common: created directory at: artifacts]
+[2025-09-22 14:31:36,276: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 14:33:47,918: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 14:33:47,922: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 14:33:47,923: INFO: common: created directory at: artifacts]
+[2025-09-22 14:33:47,924: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 14:40:54,755: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 14:40:54,759: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 14:40:54,761: INFO: common: created directory at: artifacts]
+[2025-09-22 14:40:54,762: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 14:48:07,666: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 14:48:07,672: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 14:48:07,675: INFO: common: created directory at: artifacts]
+[2025-09-22 14:48:07,677: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 14:49:27,261: INFO: server: Started server process [2940]]
+[2025-09-22 14:49:27,262: INFO: on: Waiting for application startup.]
+[2025-09-22 14:49:27,263: INFO: on: Application startup complete.]
+[2025-09-22 14:49:27,265: INFO: server: Uvicorn running on http://0.0.0.0:8081 (Press CTRL+C to quit)]
+[2025-09-22 14:50:22,037: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 14:50:22,040: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 14:50:22,041: INFO: common: created directory at: artifacts]
+[2025-09-22 14:50:22,042: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 14:54:48,104: INFO: server: Started server process [7980]]
+[2025-09-22 14:54:48,106: INFO: on: Waiting for application startup.]
+[2025-09-22 14:54:48,107: INFO: on: Application startup complete.]
+[2025-09-22 14:54:48,108: INFO: server: Uvicorn running on http://0.0.0.0:8081 (Press CTRL+C to quit)]
+[2025-09-22 14:55:03,951: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 14:55:03,954: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 14:55:03,955: INFO: common: created directory at: artifacts]
+[2025-09-22 14:55:03,956: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 15:00:31,297: INFO: server: Started server process [18076]]
+[2025-09-22 15:00:31,299: INFO: on: Waiting for application startup.]
+[2025-09-22 15:00:31,300: INFO: on: Application startup complete.]
+[2025-09-22 15:00:31,301: INFO: server: Uvicorn running on http://0.0.0.0:8081 (Press CTRL+C to quit)]
+[2025-09-22 15:00:53,297: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 15:00:53,301: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 15:00:53,302: INFO: common: created directory at: artifacts]
+[2025-09-22 15:00:53,303: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 15:01:46,583: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 15:01:46,586: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 15:01:46,587: INFO: common: created directory at: artifacts]
+[2025-09-22 15:01:46,588: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 15:09:43,374: INFO: server: Shutting down]
+[2025-09-22 15:09:43,489: INFO: on: Waiting for application shutdown.]
+[2025-09-22 15:09:43,494: INFO: on: Application shutdown complete.]
+[2025-09-22 15:09:43,495: INFO: server: Finished server process [18076]]
+[2025-09-22 15:10:03,491: INFO: server: Started server process [868]]
+[2025-09-22 15:10:03,493: INFO: on: Waiting for application startup.]
+[2025-09-22 15:10:03,494: INFO: on: Application startup complete.]
+[2025-09-22 15:10:03,495: INFO: server: Uvicorn running on http://0.0.0.0:8081 (Press CTRL+C to quit)]
+[2025-09-22 15:10:42,805: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 15:10:42,809: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 15:10:42,811: INFO: common: created directory at: artifacts]
+[2025-09-22 15:10:42,812: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 15:13:47,983: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-09-22 15:13:48,002: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-09-22 15:13:48,006: INFO: common: created directory at: artifacts]
+[2025-09-22 15:13:48,008: INFO: common: created directory at: artifacts/model_evaluation]
+[2025-09-22 15:20:33,034: INFO: server: Shutting down]
+[2025-09-22 15:20:33,148: INFO: on: Waiting for application shutdown.]
+[2025-09-22 15:20:33,156: INFO: on: Application shutdown complete.]
+[2025-09-22 15:20:33,157: INFO: server: Finished server process [868]]
